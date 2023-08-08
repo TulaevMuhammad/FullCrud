@@ -36,7 +36,7 @@ public class UserService {
 
     public Optional<UserDTO> getUserById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
-        return userOptional.map(UserMapper::toDto);
+        return userOptional.map(user -> UserMapper.toDto(user));
     }
 
     public UserDTO updateUserById(Long id, UserDTO updatedUserDTO) {
